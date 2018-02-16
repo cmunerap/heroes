@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'hero',
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero.css']
 })
 export class HeroComponent implements OnInit {
-  constructor() {}
+	id: string;
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  	this.id = this.route.snapshot.paramMap.get('id');
+  }
 }
