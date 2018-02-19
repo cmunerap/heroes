@@ -3,3 +3,15 @@
 <a routerLink="/hero">
 	<span>Load hero</span>
 </a>
+
+<h1>
+	The current hero is: {{(selectedHero$ | async)?._nickname}}
+</h1>
+
+<ul>
+	<li *ngFor="let hero of (heroes$ | async)" (click)="onHeroSelected(hero)">
+		<h3>{{hero._name}}</h3>
+		<img src="{{hero._picture}}" alt="{{hero._nickname}}">
+		<p>Height: {{hero._height}}</p>
+	</li>
+</ul>
